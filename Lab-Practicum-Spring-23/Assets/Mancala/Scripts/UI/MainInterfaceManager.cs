@@ -16,7 +16,7 @@ namespace Niobium
         [Header("Selection")]
         public GameObject panelSelection;
         public Button buttonPlayAI;
-        public Button buttonPlaySolo;
+        public Button buttonQuit;
 
         public static MainInterfaceManager instance;
 
@@ -37,11 +37,10 @@ namespace Niobium
                 Preloader.instance.PreloadScene(gameConfiguration.sceneName);
             });
 
-            buttonPlaySolo.onClick.AddListener(() =>
+            buttonQuit.onClick.AddListener(() =>
             {
-                GameConfiguration gameConfiguration = ConfigurationManager.instance.offlineConfiguration;
-                playerData.gameMode = gameConfiguration.gameMode;
-                Preloader.instance.PreloadScene(gameConfiguration.sceneName);
+                Application.Quit();
+                Debug.Log("Game Closed");
             });
         }
 
